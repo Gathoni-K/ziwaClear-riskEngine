@@ -2,12 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ziwaclear-frontend</title>
+    <title>ZiwaClear</title>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+  (function () {
+    const stored = localStorage.getItem("ziwaclear-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = stored || (prefersDark ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  })();
+</script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
