@@ -23,7 +23,7 @@ export default function SeasonalOutlookPanel({outlook }: { outlook: SeasonalOutl
   const filledBars = CONFIDENCE_LEVEL[outlook.confidence];
 
   return(
-    <div className="rounded-2xl border-2 border-dashed border-slate-600 bg-slate-900 p-6 h-full flex flex-col text-white">
+    <div className="rounded-2xl border-2 border-dashed border-slate-600 bg-slate-900 p-5 sm:p-6 h-full flex flex-col text-white">
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-slate-400 font-semibold">
           {outlook.windowLabel}

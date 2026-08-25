@@ -11,7 +11,7 @@ export default function CurrentRiskPanel({ risk }: { risk: CurrentRisk }) {
   const updated = new Date(risk.lastUpdated).toLocaleString();
 
   return (
-    <div className={`rounded-2xl border-2 ${style.border} bg-white p-6 h-full flex flex-col shadow-sm`}>
+    <div className={`rounded-2xl border-2 ${style.border} bg-white p-5 sm:p-6 h-full flex flex-col shadow-sm`}>
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-slate-500 font-semibold">
           Now
