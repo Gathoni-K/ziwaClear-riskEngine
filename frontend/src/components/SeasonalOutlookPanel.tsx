@@ -1,28 +1,22 @@
-import type { SeasonalOutlook, RiskTier} from '../types/risk';
-
-const TIER_STYLES: Record< RiskTier, {text: string; ring: string }> ={
-    Low: { text: 'text-green-300', ring: 'ring-green-400/40' },
-  Moderate: { text: 'text-amber-300', ring: 'ring-amber-400/40' },
-  High: { text: 'text-red-300', ring: 'ring-red-400/40' },
-};
+import type { SeasonalOutlook } from '../types/outlook';
+import BloomTierBadge from './BloomTierBadge';
 
 const TREND_ARROW: Record<SeasonalOutlook['trend'], string> = {
-    improving: '↓',
-    steady: '→',
-    worsening: '↑',
+  improving: '↓',
+  steady: '→',
+  worsening: '↑',
 };
 
-const CONFIDENCE_LEVEL: Record<SeasonalOutlook['confidence'], number> ={
+const CONFIDENCE_LEVEL: Record<SeasonalOutlook['confidence'], number> = {
   low: 1,
   moderate: 2,
   high: 3,
 };
 
-export default function SeasonalOutlookPanel({outlook }: { outlook: SeasonalOutlook }) {
-  const style = TIER_STYLES[outlook.outlookTier];
+export default function SeasonalOutlookPanel({ outlook }: { outlook: SeasonalOutlook }) {
   const filledBars = CONFIDENCE_LEVEL[outlook.confidence];
 
-  return(
+  return (
     <div className="rounded-2xl border-2 border-dashed border-slate-600 bg-slate-900 p-5 sm:p-6 h-full flex flex-col text-white">
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-slate-400 font-semibold">
@@ -33,9 +27,10 @@ export default function SeasonalOutlookPanel({outlook }: { outlook: SeasonalOutl
         </span>
       </div>
 
-      <div className={`mt-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 ring-1 ${style.ring}`}>
-        <span className={`text-sm font-semibold ${style.text}`}>
-          {outlook.outlookTier} projected {TREND_ARROW[outlook.trend]}
+      <div className="mt-4 flex items-center gap-2">
+        <BloomTierBadge tier={outlook.outlookTier} />
+        <span className="text-xs text-slate-400">
+          projected {TREND_ARROW[outlook.trend]}
         </span>
       </div>
 

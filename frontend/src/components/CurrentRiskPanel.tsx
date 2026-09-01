@@ -1,17 +1,17 @@
-import type { CurrentRisk, RiskTier } from '../types/risk';
+import type { CurrentRisk } from '../types/outlook';
+import BloomTierBadge from './BloomTierBadge';
 
-const TIER_STYLES: Record<RiskTier, { bg: string; text: string; dot: string; border: string }> = {
-  Low: { bg: 'bg-green-50', text: 'text-green-800', dot: 'bg-green-500', border: 'border-green-200' },
-  Moderate: { bg: 'bg-amber-50', text: 'text-amber-800', dot: 'bg-amber-500', border: 'border-amber-200' },
-  High: { bg: 'bg-red-50', text: 'text-red-800', dot: 'bg-red-500', border: 'border-red-200' },
-};
+const BORDER_STYLES = {
+  Low: 'border-green-200',
+  Moderate: 'border-amber-200',
+  High: 'border-red-200',
+} as const;
 
 export default function CurrentRiskPanel({ risk }: { risk: CurrentRisk }) {
-  const style = TIER_STYLES[risk.tier];
   const updated = new Date(risk.lastUpdated).toLocaleString();
 
   return (
-    <div className={`rounded-2xl border-2 ${style.border} bg-white p-5 sm:p-6 h-full flex flex-col shadow-sm`}>
+    <div className={`rounded-2xl border-2 ${BORDER_STYLES[risk.tier]} bg-white p-5 sm:p-6 h-full flex flex-col shadow-sm`}>
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-slate-500 font-semibold">
           Now
@@ -25,9 +25,8 @@ export default function CurrentRiskPanel({ risk }: { risk: CurrentRisk }) {
         </span>
       </div>
 
-      <div className={`mt-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 ${style.bg}`}>
-        <span className={`h-2 w-2 rounded-full ${style.dot}`} />
-        <span className={`text-sm font-semibold ${style.text}`}>{risk.tier} risk</span>
+      <div className="mt-4">
+        <BloomTierBadge tier={risk.tier} />
       </div>
 
       <p className="mt-4 text-slate-700 text-sm leading-relaxed">{risk.summary}</p>
