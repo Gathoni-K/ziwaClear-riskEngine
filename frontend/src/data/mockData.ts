@@ -1,5 +1,5 @@
-import type {Site, CurrentRisk, SeasonalOutlook } from '../types/risk';
-import type { RawStat, ModelMetadata } from '../types/risk';
+import type {Site, CurrentRisk, SeasonalOutlook } from '../types/outlook';
+import type { RawStat, ModelMetadata } from '../types/outlook';
 export const SITES: Site[] = [
     { id: 'dunga', name: 'Dunga' },
     { id: 'usenge', name: 'Usenge' },

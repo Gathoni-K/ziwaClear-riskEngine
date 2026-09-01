@@ -1,4 +1,4 @@
-import type { Site, SiteId } from '../types/risk';
+import type { Site, SiteId } from '../types/outlook';
 
 interface Props {
   sites: Site[];

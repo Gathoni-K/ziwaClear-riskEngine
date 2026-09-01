@@ -1,4 +1,4 @@
-import type { SeasonalOutlook } from '../types/risk';
+import type { SeasonalOutlook } from '../types/outlook';
 import BloomTierBadge from './BloomTierBadge';
 
 const TREND_ARROW: Record<SeasonalOutlook['trend'], string> = {

@@ -1,4 +1,4 @@
-import type { RiskTier } from '../types/risk';
+import type { RiskTier } from '../types/outlook';
 
 interface Props {
     tier: RiskTier;

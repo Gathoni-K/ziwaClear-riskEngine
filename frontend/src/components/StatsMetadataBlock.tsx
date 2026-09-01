@@ -1,4 +1,4 @@
-import type { RawStat, ModelMetadata } from '../types/risk';
+import type { RawStat, ModelMetadata } from '../types/outlook';
 
 interface Props {
     stats: RawStat[];

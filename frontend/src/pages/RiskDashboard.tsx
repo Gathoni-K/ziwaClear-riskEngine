@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { SiteId } from '../types/risk';
+import type { SiteId } from '../types/outlook';
 import { SITES, MOCK_CURRENT_RISK, MOCK_SEASONAL_OUTLOOK,MOCK_MODEL_METADATA,MOCK_RAW_STATS } from '../data/mockData';
 import StatsMetadataBlock from '../components/StatsMetadataBlock';
 import SiteSelector from '../components/SiteSelector';

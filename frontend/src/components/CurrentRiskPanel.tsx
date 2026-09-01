@@ -1,4 +1,4 @@
-import type { CurrentRisk } from '../types/risk';
+import type { CurrentRisk } from '../types/outlook';
 import BloomTierBadge from './BloomTierBadge';
 
 const BORDER_STYLES = {
