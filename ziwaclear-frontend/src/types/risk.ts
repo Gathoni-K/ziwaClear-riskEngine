@@ -18,3 +18,15 @@ export interface SeasonalOutlook{
     narrative: string;
     trend :'improving' | 'steady' | 'worsening';
 }
+export interface RawStat {
+    label: string;
+    value: string;
+    unit?: string;
+}
+
+export interface ModelMetadata {
+    modelVersion: string;
+    modelName: string;
+    runAt: string;
+    dataSource: string;
+}
